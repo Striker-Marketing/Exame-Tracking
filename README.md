@@ -52,3 +52,19 @@ Math.floor(Date.now() / 600000)
 ```
 
 Isso força a atualização do cache da CDN periodicamente, evitando que navegadores utilizem versões antigas dos arquivos por muito tempo.
+
+## Purge de Cache da CDN
+
+O jsDelivr mantém cache distribuído globalmente. Após atualizar arquivos no GitHub, pode existir propagação de cache temporária.
+
+Para forçar limpeza imediata do cache:
+
+[jsDelivr Purge Cache Tool](https://www.jsdelivr.com/tools/purge?utm_source=chatgpt.com)
+
+Exemplo de URL para purge:
+
+```txt
+https://cdn.jsdelivr.net/gh/Exame-Tracking/tracking@1/pageview.min.js
+```
+
+Isso força a CDN a buscar novamente o arquivo atualizado no repositório.
