@@ -26,6 +26,16 @@ Adicione os scripts dentro do `<head>` da página.
 </script>
 ```
 
+Apenas nas páginas **vdl**, adicione também:
+
+```html
+<script>
+  document.head.appendChild(Object.assign(document.createElement("script"), {
+    src: `https://cdn.jsdelivr.net/gh/Exame-Tracking/tracking@1/qualified-lead.min.js?cb=${Math.floor(Date.now() / 600000)}`,
+  }));
+</script>
+```
+
 ## Scripts
 
 ### `pageview.min.js`
@@ -35,6 +45,10 @@ Responsável pelo tracking automático de visualizações de página.
 ### `lead.min.js`
 
 Responsável pelo tracking de leads e envios de formulário.
+
+### `qualified-lead.min.js`
+
+Adicionado apenas nas páginas **vdl**. Escuta o envio de qualquer formulário da página, calcula a faixa de qualificação do lead (`Quente`, `Morno`, `Frio`, `Desqualificado`, `Inelegível` ou `Sem_Score`) e dispara o evento `Qualified Lead` no Umami quando a faixa é `Quente`, `Morno` ou `Frio`.
 
 ## Versionamento
 
