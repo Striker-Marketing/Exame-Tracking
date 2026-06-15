@@ -6,10 +6,7 @@ Adicione os scripts dentro do `<head>` da página.
 <script src="https://exame-tracking-224ea0.gitlab.io/loader.js?scripts=gtm,pageview,lead"></script>
 <script>
   document.head.appendChild(Object.assign(document.createElement("script"), {
-    src: `https://cdn.jsdelivr.net/gh/Striker-Marketing/Exame-Tracking@1/pageview.min.js?cb=${Math.floor(Date.now() / 600000)}`,
-  }));
-  document.head.appendChild(Object.assign(document.createElement("script"), {
-    src: `https://cdn.jsdelivr.net/gh/Striker-Marketing/Exame-Tracking@1/lead.min.js?cb=${Math.floor(Date.now() / 600000)}`,
+    src: `https://cdn.jsdelivr.net/gh/Striker-Marketing/Exame-Tracking@1/init-umami.min.js?cb=${Math.floor(Date.now() / 600000)}`,
   }));
 </script>
 ```
@@ -26,13 +23,9 @@ Apenas nas páginas **vdl**, adicione também:
 
 ## Scripts
 
-### `pageview.min.js`
+### `init-umami.min.js`
 
-Responsável pelo tracking automático de visualizações de página para o Umami.
-
-### `lead.min.js`
-
-Responsável pelo tracking de leads e envios de formulário para o Umami.
+Responsável pelo tracking automático de visualizações de página e pelo tracking de leads e envios de formulário para o Umami.
 
 ### `qualified-lead.min.js`
 

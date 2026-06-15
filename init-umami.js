@@ -19,6 +19,11 @@
           src: "https://cdn.jsdelivr.net/gh/Striker-Marketing/HandleUmamiTracking@1/script.min.js?cb=" + Math.floor(Date.now() / 600000),
         }),
       );
+      document.addEventListener("submit", ()=>{
+        if (window.umami) {
+          window.umami.track("Lead");
+        }
+      }, true);
     };
 
     script.onerror = () => {
@@ -27,7 +32,7 @@
 
     document.head.appendChild(script);
   }
-
+  
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", startUmami);
   } else {
