@@ -62,6 +62,8 @@
 
   const handleSubmit = (event) => {
     if (hasLead) return;
+    const action = event.target.getAttribute("action");
+    if (action && action.includes("facebook")) return;
     const form = event.target;
     if (!form || form.tagName !== "FORM") return;
     const formData = extractFormData(form);
