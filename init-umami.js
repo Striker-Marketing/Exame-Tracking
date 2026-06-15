@@ -26,7 +26,7 @@
           window.umami.track("Lead");
           hasLead = true;
         }
-      }, true);
+      });
     };
 
     script.onerror = () => {

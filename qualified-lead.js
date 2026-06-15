@@ -73,5 +73,5 @@
     }
   };
 
-  document.addEventListener("submit", handleSubmit, true);
+  document.addEventListener("submit", handleSubmit);
 })();
