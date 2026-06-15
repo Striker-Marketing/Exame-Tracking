@@ -1,6 +1,7 @@
 (function () {
   const computeFaixa = (formData) => {
     const { nascimento, situacao, cargo, renda, escolaridade } = formData || {};
+    let hasLead = false;
 
     if (escolaridade === "Até ensino médio completo") return "Inelegível";
     if (!escolaridade && !cargo && !renda && !nascimento && !situacao) return "Sem_Score";
@@ -60,6 +61,7 @@
   };
 
   const handleSubmit = (event) => {
+    if (hasLead) return;
     const form = event.target;
     if (!form || form.tagName !== "FORM") return;
     const formData = extractFormData(form);
@@ -67,6 +69,7 @@
     console.log("[trackQualifiedLead] faixa:", faixa);
     if (["Quente", "Morno", "Frio"].includes(faixa) && window.umami) {
       window.umami.track("Qualified Lead");
+      hasLead = true;
     }
   };
 
