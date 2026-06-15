@@ -4,6 +4,7 @@
       "lps.exame.com": "11d5f6f9-2d0e-4ecb-a90d-ab6408c2b313",
       "lps.saintpaul.com.br": "ea330008-5957-494d-8591-7265c3887af4",
     };
+    let hasLead = false;
 
     const websiteId = websiteIds[location.hostname];
     if (!websiteId) return;
@@ -20,8 +21,10 @@
         }),
       );
       document.addEventListener("submit", ()=>{
+        if (hasLead) return;
         if (window.umami) {
           window.umami.track("Lead");
+          hasLead = true;
         }
       }, true);
     };
