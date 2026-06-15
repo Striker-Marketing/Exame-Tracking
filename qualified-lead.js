@@ -1,7 +1,6 @@
 (function () {
   const computeFaixa = (formData) => {
     const { nascimento, situacao, cargo, renda, escolaridade } = formData || {};
-    let hasLead = false;
 
     if (escolaridade === "Até ensino médio completo") return "Inelegível";
     if (!escolaridade && !cargo && !renda && !nascimento && !situacao) return "Sem_Score";
@@ -59,7 +58,7 @@
     });
     return data;
   };
-
+  let hasLead = false;
   const handleSubmit = (event) => {
     if (hasLead) return;
     const action = event.target.getAttribute("action");
